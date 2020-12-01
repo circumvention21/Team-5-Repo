@@ -20313,6 +20313,8 @@ MonoBehaviour:
   speed: 0
   rb: {fileID: 1952633419}
   movementSpeed: 120
+  jumpHeight: 0
+  isGrounded: 0
 --- !u!114 &1952633425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20334,6 +20336,36 @@ MonoBehaviour:
   ReloadTime: 1.5
   BulletSpeed: 10
   sr: {fileID: 1952633420}
+--- !u!1 &2008813488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2008813489}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2008813489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008813488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.690838, y: 0.09778642, z: 0.05078125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7851330939658529778
 Transform:
   m_ObjectHideFlags: 0
@@ -20453,6 +20485,7 @@ MonoBehaviour:
   snowball: {fileID: 7851330939658529780}
   mainCam: {fileID: 519420031}
   snowman: {fileID: 0}
+  snowParticleHitGround: {fileID: 0}
 --- !u!58 &7851330939658529783
 CircleCollider2D:
   m_ObjectHideFlags: 0
