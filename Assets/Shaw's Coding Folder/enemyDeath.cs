@@ -1,20 +1,27 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class enemyDeath : MonoBehaviour
 {
-    private int enemyHealth = 30;
+    public int enemyHealth = 40;
     public GameObject enemy;
+    public int damage = 10;
     public ParticleSystem enemyExplosion;
     public Camera mainCam;
+    public Slider HealthBar;
+    public GameObject SliderNoActive;
+    public Vector3 Offset;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SliderNoActive.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        SliderNoActive.transform.position = Camera.main.WorldToScreenPoint(enemy.transform.position + Offset);
         if (enemyExplosion.IsAlive(true))
         {
            
@@ -23,9 +30,12 @@ public class enemyDeath : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag.Equals("snowBall")){
-
-            enemyHealth -= 10;
+        if (collision.gameObject.tag.Equals("snowBall"))
+        {
+            SliderNoActive.SetActive(true);
+            enemyHealth -= damage;
+            HealthBar.value = enemyHealth;
+          
 
             if (enemyHealth <= 0)
             {
