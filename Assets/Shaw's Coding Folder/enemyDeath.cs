@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using UnityEngine.UI;
 
 public class enemyDeath : MonoBehaviour
@@ -11,6 +11,8 @@ public class enemyDeath : MonoBehaviour
     public Slider HealthBar;
     public GameObject SliderNoActive;
     public Vector3 Offset;
+    public GameObject EnemyHit;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,9 @@ public class enemyDeath : MonoBehaviour
             SliderNoActive.SetActive(true);
             enemyHealth -= damage;
             HealthBar.value = enemyHealth;
+            Instantiate(EnemyHit, transform.position, Quaternion.identity);
+        
+
           
 
             if (enemyHealth <= 0)

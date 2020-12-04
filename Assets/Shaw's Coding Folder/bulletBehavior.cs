@@ -9,7 +9,8 @@ public class bulletBehavior : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 MoveDirection;
     public GameObject Bullet;
-    public ParticleSystem PlayerHit;
+    public GameObject PlayerHit;
+    public Camera mainCam;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +28,39 @@ public class bulletBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag.Equals("Player"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
-            PlayerHit.Play();
-
-            Bullet.SetActive(false);
             
+
+            StartCoroutine(shake(0.2f, 0.13f));
+
+            Instantiate(PlayerHit, Player.transform.position, Quaternion.identity);
+
 
 
         }
+
+        }
+
+    public IEnumerator shake(float duration, float magnitude)
+        {
+
+            Vector3 originalPos = mainCam.transform.localPosition;
+
+            float elapsed = 0.0f;
+
+            while (elapsed < duration)
+            {
+                float x = Random.Range(-1f, 1f) * magnitude;
+                float y = Random.Range(-1f, 1f) * magnitude;
+
+                mainCam.transform.localPosition = new Vector3(x, y, originalPos.z);
+
+                elapsed += Time.deltaTime;
+
+                yield return null;
+            }
+            mainCam.transform.localPosition = originalPos;
+        }
     }
-}
+
