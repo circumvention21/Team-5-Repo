@@ -11,6 +11,7 @@ public class EnemyAttack : MonoBehaviour
     public GameObject Life2;
     public GameObject Life1;
     public int lifePoints = 3;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +19,13 @@ public class EnemyAttack : MonoBehaviour
         Life1.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+   
+        // Update is called once per frame
+        void Update()
     {
-        Debug.Log(lifePoints);
+        
+  
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -60,5 +64,9 @@ public class EnemyAttack : MonoBehaviour
 
 
         }
+
+        
+
+        }
     }
-}
+
