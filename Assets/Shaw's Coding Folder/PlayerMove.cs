@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     public float CurrentDashTime;
     public float MovX;
     public int alreadyDashed;
+    public Animator ani;
 
     void Start()
     {
@@ -29,6 +30,19 @@ public class PlayerMove : MonoBehaviour
         MovX = Input.GetAxis("Horizontal");
 
         Jump();
+
+        if (MovX == 0)
+        {
+
+            ani.SetBool("isStill", true);
+
+        }
+        else
+        {
+
+            ani.SetBool("isStill", false);
+
+        }
 
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -44,7 +58,11 @@ public class PlayerMove : MonoBehaviour
 
         }
     
+        
 
+            ani.SetFloat("Speed", MovX);
+
+        
 
         rb.velocity = new Vector2(MovX* Time.deltaTime * movementSpeed, rb.velocity.y);
 
