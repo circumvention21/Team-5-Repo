@@ -32,35 +32,12 @@ public class bulletBehavior : MonoBehaviour
         {
             
 
-            StartCoroutine(shake(0.2f, 0.13f));
-
             Instantiate(PlayerHit, Player.transform.position, Quaternion.identity);
 
 
 
         }
 
-        }
-
-    public IEnumerator shake(float duration, float magnitude)
-        {
-
-            Vector3 originalPos = mainCam.transform.localPosition;
-
-            float elapsed = 0.0f;
-
-            while (elapsed < duration)
-            {
-                float x = Random.Range(-1f, 1f) * magnitude;
-                float y = Random.Range(-1f, 1f) * magnitude;
-
-                mainCam.transform.localPosition = new Vector3(x, y, originalPos.z);
-
-                elapsed += Time.deltaTime;
-
-                yield return null;
-            }
-            mainCam.transform.localPosition = originalPos;
         }
     }
 

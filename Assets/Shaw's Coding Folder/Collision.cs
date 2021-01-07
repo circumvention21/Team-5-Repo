@@ -8,6 +8,7 @@ public class Collision : MonoBehaviour
     public Camera mainCam;
     public GameObject snowman;
     public ParticleSystem snowParticleHitGround;
+    public AudioSource HitAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +25,15 @@ public class Collision : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Enemy"))
         {
+            
          
             snowball.SetActive(false);
-       
-            
+            HitAudio.Play();
 
 
-    }
+
+
+        }
       
     }
     private void OnTriggerEnter2D(Collider2D other)

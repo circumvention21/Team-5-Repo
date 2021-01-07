@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     public float MovX;
     public int alreadyDashed;
     public Animator ani;
+    public AudioSource JumpSound;
 
     void Start()
     {
@@ -72,6 +73,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && isGrounded == true)
         {
+            JumpSound.Play();
             rb.AddForce(new Vector2(0, jumpHeight));
             Debug.Log("Jump");
         }

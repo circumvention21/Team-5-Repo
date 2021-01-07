@@ -13,6 +13,7 @@ public class shooting : MonoBehaviour
     public float ReloadTime = 1.5f;
     public float BulletSpeed = 10f;
     public SpriteRenderer sr;
+    public AudioSource ShootSound;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class shooting : MonoBehaviour
         
         if (Input.GetButtonDown("Fire1"))
         {
-
+            ShootSound.Play();
             Shoot();
 
         }
