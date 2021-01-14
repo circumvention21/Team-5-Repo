@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public AudioSource Click;
     public Button playButton;
 
     public Button creditsButton;
@@ -16,15 +17,18 @@ public class MainMenu : MonoBehaviour
 
     public string Credits;
 
+    public string lvl2;
+
     public void PlayButton()
     {
-        SceneManager.LoadScene(CaveLevel);
+        SceneManager.LoadScene(lvl2);
 
     }
 
     public void CreditsButton()
     {
-        SceneManager.LoadScene(Credits);
+        Click.Play();
+        SceneManager.LoadScene("Credits");
 
     }
 

@@ -9,6 +9,7 @@ TagManager:
   - Grounded
   - enemySnow
   - playerShake
+  - ClickSound
   layers:
   - Default
   - TransparentFX

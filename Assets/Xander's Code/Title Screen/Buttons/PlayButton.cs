@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
+    public AudioSource Click;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,11 @@ public class PlayButton : MonoBehaviour
 
     public void PlayGameButton()
     {
+        Click.Play();
 
         Debug.Log("Button Worked");
-        SceneManager.LoadScene("CaveLevel");
+
+        SceneManager.LoadScene("lvl2");
 
     }
 

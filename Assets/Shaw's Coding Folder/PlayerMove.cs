@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -27,6 +28,13 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+
+            SceneManager.LoadScene("Credits");
+
+        }
 
         MovX = Input.GetAxis("Horizontal");
 
@@ -76,6 +84,11 @@ public class PlayerMove : MonoBehaviour
             JumpSound.Play();
             rb.AddForce(new Vector2(0, jumpHeight));
             Debug.Log("Jump");
+            ani.SetBool("IsGrounded", false);
+        }
+        else
+        {
+            ani.SetBool("IsGrounded", true);
         }
 
     }
